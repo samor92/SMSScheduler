@@ -43,7 +43,7 @@ public class SMSUtils {
 
             smsManager.sendTextMessage(address, null, message.trim(), sentIntent, deliveryIntent);
             return resultCode[0];
-        } catch (Exception ex) {
+        } catch (IllegalArgumentException ex) {
             ex.printStackTrace();
             return UNEXPECTED_ERROR;
         }
@@ -95,7 +95,7 @@ public class SMSUtils {
             smsManager.sendMultipartTextMessage(address, null, parts, sentIntents, deliveryIntents);
 
             return resultCode[0];
-        } catch (Exception ex) {
+        } catch (IllegalArgumentException ex) {
             ex.printStackTrace();
             return UNEXPECTED_ERROR;
         }
